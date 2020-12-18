@@ -1,0 +1,32 @@
+from math import sqrt
+h=0
+value=input("")
+x,y,z=value.split(', ')
+x=float(x)
+y=float(y)
+z=float(z)
+sides=[x,y,z]
+sides.sort(reverse=True)
+x=sides[0]
+y=sides[1]
+z=sides[2]
+print('%1.2f'%(x),'%1.2f'%(y),'%1.2f'%(z))
+if x>=y and x>=z:
+    if x>=z+y:
+        print('Not a triangle')
+    if x<z+y:
+        t=(x+y+z)/2
+        e = sqrt(t*(t-x)*(t-y)*(t-z))
+        p =x+y+z
+        print('Perimeter: %1.2f'%(p))
+        print('Area: %1.2f'%(e))
+        if x==y and x==z:
+            print('Equilateral triangle')
+        elif x==y or x==z or y==z:
+            print('Isosceles triangle')
+        if x**2==y**2+z**2:
+            print('Right triangle')
+        elif  x**2<y**2+z**2:
+            print('Acute triangle')
+        else:
+            print('Obtuse triangle')
