@@ -1,0 +1,35 @@
+def isprime(n):
+    if n==1:
+        return False
+    if n==2:
+        return True
+    if n>2:
+        if n % 2==0 or n % 3==0:
+            return False
+    for i in range(3,int(n ** 0.5 + 1)):
+        if n % i == 0 : 
+            return False
+    return True
+
+def nth_prime_number(n):
+    if n==1:
+        yield 2
+    elif n==2:
+        yield 3
+    else:
+        count = 1
+        num = 1
+        while count < n:
+            num +=1
+            if isprime(num):
+                count +=1
+        yield num
+
+while True:
+    x = input()
+    if x == 'END' or x == 'end' :
+        break
+    x = int(x)
+    gen = nth_prime_number(x)
+    for i in gen:
+        print(i)
