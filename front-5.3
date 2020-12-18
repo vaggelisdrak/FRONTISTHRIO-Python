@@ -1,0 +1,35 @@
+fib_primes=[2,3]
+
+def fibonacci_numbers(nums):
+    x, y = 0, 1
+    for _ in range(nums):
+        x, y = y, x+y
+    return x
+    
+
+def isprime(n):
+    if n==1:
+        return False
+    if n==2:
+        return True
+    if n>2:
+        if n%2 ==0 or n%3 ==0:
+            return False
+    for i in range(3,int(n ** 0.5 + 1)):
+        if n % i == 0 : 
+            return False
+    return True
+
+i=3
+#while len(fib_primes)<=6:
+for _ in range(9):
+    j =fibonacci_numbers(i)
+    while not isprime(j):
+        i+=1
+        j =fibonacci_numbers(i)
+    i+=1
+    fib_primes.append(j)
+
+for i in list(dict.fromkeys(fib_primes)):
+    print(i)
+    
