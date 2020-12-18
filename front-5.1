@@ -1,0 +1,14 @@
+def fibonacci_numbers(nums):
+    x, y = 0, 1
+    for _ in range(nums):
+        x, y = y, x+y
+    yield x
+    
+while True:
+    x = input()
+    if x == 'END' or x == 'end' :
+        break
+    x = int(x)
+    total = fibonacci_numbers(x)
+    for i in total:  
+        print(i) 
