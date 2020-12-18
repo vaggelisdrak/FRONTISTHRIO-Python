@@ -1,0 +1,48 @@
+while True:
+    count=0
+    num=[]
+    pos=0
+    f=''
+    x =input('')
+    if x == 'END'or x == 'end':
+        break
+    else:
+        for l in x:
+            if l.isdigit()==False:
+                for z in [4,9,14]:
+                    if x[z] == '-' or x[z] == '' or x[z] == ' ':
+                        x=x.replace(l, "")
+                    else:
+                        break
+        try:
+            if int(x[0])<4 or int(x[0])>7 or len(x)!=16:
+                print('False')
+            else:
+                for l in x:
+                    num.append([l,pos])
+                    pos+=1
+
+                for i in num:
+                    if i[1] % 2==0:
+                        y=0
+                        y+=2*int(i[0])
+                        #print(y)
+                        if y>9:
+                            #print(y)
+                            o=0
+                            for c in str(y):
+                                o+=int(c)
+                            i[0]=str(o)
+                        else:
+                            i[0]=str(y)
+
+                for el in num :
+                    f+=str(el[0])
+                for n in f:
+                    count+=int(n)
+                if count % 10 ==0:
+                    print('True')
+                else:
+                    print('False')
+        except:
+            print('False')
